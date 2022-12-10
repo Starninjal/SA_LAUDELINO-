@@ -11,6 +11,7 @@ import br.com.senai.core.dao.ManagerDb;
 import br.com.senai.core.domain.Cidade;
 
 public class DaoPostgresqlCidade implements DaoCidade {
+	
 	private final String INSERT = "INSERT INTO cidades (nome, uf) VALUES (?,?)";
 	
 	private final String UPDATE = "UPDATE cidades SET nome = ?, uf = ? WHERE id = ?";

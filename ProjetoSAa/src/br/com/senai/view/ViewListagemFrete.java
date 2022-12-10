@@ -140,7 +140,7 @@ public class ViewListagemFrete extends JFrame {
 		FreteTableModel model = new FreteTableModel(new ArrayList<Frete>());
 		tableFretes = new JTable(model);
 		spTable = new JScrollPane(tableFretes);
-		spTable.setBounds(10, 128, 858, 285);
+		spTable.setBounds(11, 161, 858, 285);
 		contentPane.add(spTable);
 		
 		JLabel lblResultados = new JLabel("Resultados");

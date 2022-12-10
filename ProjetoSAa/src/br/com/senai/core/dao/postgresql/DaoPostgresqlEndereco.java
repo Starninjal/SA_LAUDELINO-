@@ -84,7 +84,24 @@ public class DaoPostgresqlEndereco implements DaoEndereco {
 	@Override
 	public void excluirPor(int id) {
 		// TODO Auto-generated method stub
-		
+		PreparedStatement ps = null;
+		try {
+			ManagerDb.getInstance().configurarAutocommitDa(conexao, false);
+			ps = conexao.prepareStatement(DELETE);
+			ps.setInt(1, id);
+			boolean isExclusaoOK = ps.executeUpdate() == 1;
+			if(isExclusaoOK) {
+				this.conexao.commit();
+			} else {
+				this.conexao.rollback();
+			}
+			ManagerDb.getInstance().configurarAutocommitDa(conexao, true);
+		} catch(Exception e) {
+			throw new RuntimeException("Ocorreu um erro ao excluir o endereço. Motivo: " + e.getMessage());
+			
+		} finally {
+			ManagerDb.getInstance().fechar(ps);
+		}
 	}
 
 	@Override

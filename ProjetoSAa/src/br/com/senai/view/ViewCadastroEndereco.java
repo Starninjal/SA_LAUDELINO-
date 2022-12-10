@@ -138,7 +138,7 @@ public class ViewCadastroEndereco extends JFrame {
 		
 		cbCidade = new JComboBox<>();
 
-		cbCidade.setBounds(422, 328, 328, 26);
+		cbCidade.setBounds(422, 326, 328, 26);
 		contentPane.add(cbCidade);
 		
 		this.carregarCombo();
